@@ -7,6 +7,9 @@ status = Status()
 status.register("clock",
 	format="%a %-d %b %X KW%V",)
 
+status.register("uptime",
+        format="UP:{hours}:{mins}",)
+
 status.register("battery",
     format="{status}/{consumption:.2f}W {percentage:.2f}% {remaining:%E%hh:%Mm}",
     alert=True,
@@ -39,5 +42,10 @@ status.register("backlight",
 	interval=globInterval,
 	format="☐{percentage}%",
 	base_path="/sys/class/leds/smc::kbd_backlight/",)
+
+status.register("github",
+        username="",
+        password="",
+        format="GH:{unread}",)
 
 status.run()
