@@ -111,9 +111,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q sset Master 5%-"
 bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master toggle"
 
 
-#screen brightness 
-bindsym XF86MonBrightnessDown exec --no-startup-id "/home/senpo/.config/i3/bright.sh -2" 
-bindsym XF86MonBrightnessUp   exec --no-startup-id "/home/senpo/.config/i3/bright.sh +2" 
+#screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 5"
+bindsym XF86MonBrightnessUp   exec --no-startup-id "light -A 5"
 
 
 # Touchpad controls
@@ -126,8 +126,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 #kebyboard LED  brightness
-bindsym XF86KbdBrightnessDown exec --no-startup-id "/home/senpo/.config/i3/keyboard.sh -2"
-bindsym XF86KbdBrightnessUp   exec --no-startup-id "/home/senpo/.config/i3/keyboard.sh +2"
+bindsym XF86KbdBrightnessDown exec --no-startup-id "kblight -U 5"
+bindsym XF86KbdBrightnessUp   exec --no-startup-id "kblight -A 5"
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -182,6 +182,4 @@ bar {
 	workspace_buttons yes
 }
 
-exec --no-startup-id "xrandr --output LVDS-1 --right-of DP-2"
-
-exec --no-startup-id "xmodmap /home/senpo/.Xmodmap"
+exec --no-startup-id "xrandr --output DP-2 --left-of LVDS-1 --rotate left"
