@@ -1,12 +1,12 @@
 # coding: utf8
 from i3pystatus import Status
 
-globInterval = 10
+globInterval = 2
 status = Status()
 
 status.register("shell",
         command = "setxkbmap -print | grep xkb_symbols | awk '{print $4}' | awk -F\"+\" '{print $2}'",
-        on_leftclick = "(setxkbmap -query | grep -q \"layout:\s\+us\") && setxkbmap 'de(mac)' || setxkbmap us",
+        on_leftclick = "(setxkbmap -query | grep -q 'layout:\s\+us(mac)') && setxkbmap 'de(mac)' || setxkbmap 'us(mac)'", 
         on_rightclick = "run",
         )
 
@@ -25,6 +25,9 @@ status.register("battery",
         "CHR": "↑",
         "FULL": "=",
     },)
+
+#status.register("solaar",
+#        nameOfDevice='Senpos Tastatur',)
 
 status.register("network",
 	interface="wlp3s0b1",
